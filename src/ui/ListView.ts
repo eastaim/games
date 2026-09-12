@@ -1,5 +1,6 @@
 import { GAMES } from '../catalog/games';
 import type { GameEntry } from '../catalog/types';
+import { readPlayer } from '../core/player';
 import { gameRoute } from '../core/router';
 import { readBest } from '../core/scores';
 import { thumbnailSvg } from './thumbnail';
@@ -61,7 +62,11 @@ export function renderList(): HTMLElement {
 
   const intro = document.createElement('p');
   intro.className = 'list__intro';
-  intro.textContent = '하고 싶은 게임을 고르세요.';
+  // The name comes from the player's own cookie, so it is set with
+  // textContent like every other piece of untrusted text here.
+  const player = readPlayer();
+  intro.textContent =
+    player === null ? '하고 싶은 게임을 고르세요.' : `${player.name}님의 기록입니다.`;
 
   const grid = document.createElement('div');
   grid.className = 'grid';

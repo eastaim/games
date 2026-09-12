@@ -5,6 +5,7 @@ import { nextThemePref, readThemePref, saveThemePref, THEME_LABELS } from './cor
 import type { ThemePref } from './core/theme';
 import { renderGame } from './ui/GameView';
 import type { MountedView } from './ui/GameView';
+import { createPlayerChip } from './ui/PlayerChip';
 import { renderList, renderNotFound } from './ui/ListView';
 import './style.css';
 
@@ -47,7 +48,18 @@ brand.className = 'header__brand';
 brand.href = '#/';
 brand.textContent = '게임 포털';
 
-header.append(brand, themeButton);
+// The identity the games themselves wrote. Renaming here renames everywhere,
+// because the cookie is shared by the whole origin.
+const playerChip = createPlayerChip({
+  // A rename changes the greeting on the list, so redraw whatever is mounted.
+  onChange: () => render(),
+});
+
+const headerActions = document.createElement('div');
+headerActions.className = 'header__actions';
+headerActions.append(playerChip.element, themeButton);
+
+header.append(brand, headerActions);
 
 const main = document.createElement('main');
 main.className = 'main';
@@ -59,6 +71,8 @@ app.append(header, main);
 let mounted: MountedView | null = null;
 
 function render(): void {
+  playerChip.refresh();
+
   // Always tear the previous view down first: leaving a game means the iframe
   // has to go before anything else is drawn.
   mounted?.destroy();
