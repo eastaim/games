@@ -46,7 +46,7 @@ header.className = 'header';
 const brand = document.createElement('a');
 brand.className = 'header__brand';
 brand.href = '#/';
-brand.textContent = '게임 포털';
+brand.textContent = 'Y3GAMES';
 
 // The identity the games themselves wrote. Renaming here renames everywhere,
 // because the cookie is shared by the whole origin.
@@ -97,6 +97,35 @@ function render(): void {
 
 window.addEventListener('hashchange', render);
 render();
+
+// ── refresh on change ────────────────────────────────────────────────────────
+
+/**
+ * Redraw the list when a game's stored record may have changed.
+ *
+ * Only while the list is showing. Re-rendering a mounted game would tear down
+ * its iframe and reload the game — losing the run the player is in the middle
+ * of. `MountedView.destroy()` exists for leaving a game, not for a refresh.
+ */
+function refreshList(): void {
+  if (parseRoute(location.hash, GAME_IDS).kind !== 'list') return;
+  render();
+}
+
+// A game in another tab — or in this page's own iframe, which is a separate
+// browsing context — just wrote its best score. `storage` fires everywhere
+// except the context that wrote it, which is exactly what this needs.
+window.addEventListener('storage', refreshList);
+
+// Belt and braces for what `storage` cannot see: the player name lives in a
+// cookie (cookies fire no storage event), and a back/forward restore from the
+// bfcache re-shows the page without firing anything at all.
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') refreshList();
+});
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) refreshList();
+});
 
 // ── optional score reporting ─────────────────────────────────────────────────
 
