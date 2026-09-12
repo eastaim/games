@@ -5,7 +5,9 @@ Guidance for Claude Code when working in this repository.
 ## What this is
 
 The game portal: one page listing every web game, deployed to GitHub Pages at
-`https://y3games.github.io/games/`. Vite + TypeScript, **no framework and no Phaser** — the portal
+`https://y3games.github.io/`. This repository **is** the organization site (its name is
+`y3games.github.io`), so it is served from the root while the games sit at `/<repo>/` beside it.
+Vite + TypeScript, **no framework and no Phaser** — the portal
 is a list and a shell, and staying tiny is why the list paints instantly while a game loads.
 
 Games are **not** part of this repository. Each keeps its own repo and its own Pages deployment;
