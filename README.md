@@ -2,7 +2,7 @@
 
 웹 게임을 한 곳에서 골라 바로 플레이하는 미니 포털.
 
-**https://eastaim.github.io/games/**
+**https://y3games.github.io/games/**
 
 게임은 각자 저장소와 각자 GitHub Pages 배포를 그대로 유지합니다. 이 저장소는 목록 화면과
 실행 껍데기만 담당하고, 고른 게임을 iframe으로 띄웁니다.
@@ -26,7 +26,7 @@
 
 ## 최고 점수
 
-포털과 게임이 같은 오리진(`eastaim.github.io`)에 있으므로, 포털이 게임의 localStorage 기록을
+포털과 게임이 같은 오리진(`y3games.github.io`)에 있으므로, 포털이 게임의 localStorage 기록을
 그대로 읽어 카드에 표시합니다. 게임은 `<id>.best` 키에 개인 최고 점수를 저장하면 됩니다.
 이미 다른 키를 쓰고 있다면 레지스트리에 `scoreKey`로 알려주면 됩니다.
 
