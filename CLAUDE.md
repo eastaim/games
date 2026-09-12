@@ -31,8 +31,13 @@ Data flows in one direction: the hash → a route → the catalog → a view.
   else. Code that special-cases a particular game belongs nowhere.
 - `src/core/` — pure modules that import no DOM, so the whole route table, the score rules and the
   message validation are unit-tested without a browser. `ui/` is the only layer that touches the DOM.
-- `src/core/storage.ts` — the single guarded `localStorage` wrapper. Nothing else calls
-  `localStorage` directly; `scores.ts` and `theme.ts` both go through it.
+- `src/core/storage.ts` — the single guarded `localStorage` **and cookie** wrapper. Nothing else
+  calls `localStorage` or `document.cookie` directly; `scores.ts`, `theme.ts` and `player.ts` all
+  go through it.
+- `src/core/player.ts` — the player identity the _games_ write: `{id, name}` in the origin-wide
+  `player` cookie, mirrored to localStorage. The format is **duplicated here on purpose** — the
+  portal imports nothing from a game repository, exactly as with the `<id>.best` convention.
+  `tests/player.test.ts` pins the format so a change on the game side fails here.
 - `src/core/router.ts` — `parseRoute()` takes the known ids as an argument rather than importing
   the catalog, which is what keeps it pure and lets tests drive it with a fixture.
 - `src/ui/GameView.ts` — mounts the iframe, owns its teardown.
@@ -55,6 +60,8 @@ Data flows in one direction: the hash → a route → the catalog → a view.
   type-checks every field. Anything embedded can post to this window.
 - **Do not hardcode `base` in `vite.config.ts`.** It is derived from `GITHUB_REPOSITORY`.
   Hardcoding it 404s every asset on deploy.
+- **A rename must keep the player id.** `savePlayer()` reuses the existing id, which is what keeps
+  a renamed player's records theirs. Generating a new id on rename silently orphans every record.
 - Scores are invisible in local dev — the games load cross-origin from the deployed host. That is
   expected, not a bug. Verify score display on the deployed site.
 

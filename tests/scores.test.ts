@@ -17,7 +17,9 @@ describe('bestScoreKey', () => {
   });
 
   it('honours a game that predates the convention', () => {
-    expect(bestScoreKey({ id: 'phaser-starter', scoreKey: 'game.best' })).toBe('game.best');
+    // No registered game needs this today; the escape hatch stays for one that
+    // ships before it can be updated.
+    expect(bestScoreKey({ id: 'legacy-game', scoreKey: 'game.best' })).toBe('game.best');
   });
 });
 

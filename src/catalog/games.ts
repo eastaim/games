@@ -21,9 +21,6 @@ export const GAMES: readonly GameEntry[] = [
     path: '/phaser-starter/',
     accent: '#4fc3f7',
     status: 'live',
-    // The template still writes the generic key it shipped with. Mapping it
-    // here beats editing a deployed game just to satisfy the portal.
-    scoreKey: 'game.best',
   },
 ];
 

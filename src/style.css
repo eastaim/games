@@ -173,6 +173,104 @@ a {
   font-weight: 600;
 }
 
+/* ── player chip and dialog ──────────────────────────────────────────────── */
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-chip {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+  max-width: 10em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.player-chip:hover {
+  background: var(--surface-hover);
+}
+
+.dialog {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  padding: 0;
+  width: min(320px, calc(100vw - 40px));
+}
+
+.dialog::backdrop {
+  background: rgb(0 0 0 / 45%);
+}
+
+.dialog__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+
+.dialog__title {
+  margin: 0;
+  font-size: 17px;
+}
+
+.dialog__hint {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.dialog__input {
+  font: inherit;
+  /* Under 16px, iOS Safari zooms the page when the field takes focus. */
+  font-size: 16px;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.dialog__error {
+  margin: 0;
+  color: #e5484d;
+  font-size: 13px;
+}
+
+.dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.dialog__actions .button {
+  margin-top: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.button--quiet {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
 /* ── cards ──────────────────────────────────────────────────────────────── */
 
 .grid {
