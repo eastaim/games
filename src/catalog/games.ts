@@ -7,6 +7,14 @@ import type { GameEntry } from './types';
  */
 export const GAMES: readonly GameEntry[] = [
   {
+    id: 'roaddash',
+    title: 'RoadDash',
+    tagline: '끝없는 도로를 질주하는 반사신경 레이싱',
+    path: '/RoadDash/',
+    accent: '#ffc400',
+    status: 'live',
+  },
+  {
     id: 'mergedrop',
     title: 'MergeDrop',
     tagline: '같은 과일을 떨어뜨려 합치는 물리 퍼즐',
