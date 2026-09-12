@@ -2,7 +2,7 @@
 
 웹 게임을 한 곳에서 골라 바로 플레이하는 미니 포털.
 
-**https://y3games.github.io/games/**
+**https://y3games.github.io/**
 
 게임은 각자 저장소와 각자 GitHub Pages 배포를 그대로 유지합니다. 이 저장소는 목록 화면과
 실행 껍데기만 담당하고, 고른 게임을 iframe으로 띄웁니다.
