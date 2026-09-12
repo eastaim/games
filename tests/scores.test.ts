@@ -57,7 +57,7 @@ describe('readBest', () => {
 });
 
 describe('parseScoreReport', () => {
-  const ORIGIN = 'https://eastaim.github.io';
+  const ORIGIN = 'https://y3games.github.io';
   const valid = { type: 'portal:best', gameId: 'mergedrop', score: 120 };
 
   it('accepts a well-formed message from the expected origin', () => {

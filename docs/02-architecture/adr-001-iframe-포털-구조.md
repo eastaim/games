@@ -50,7 +50,7 @@ Vite + Phaser로 빌드되어 각자 GitHub Pages 주소로 배포되어 있다.
 
 ## 이 결정이 가능하게 한 것
 
-포털과 게임이 **같은 오리진**(`eastaim.github.io`)에 있다는 점이 iframe 방식의 약점 하나를
+포털과 게임이 **같은 오리진**(`y3games.github.io`)에 있다는 점이 iframe 방식의 약점 하나를
 없앴다. localStorage가 공유되므로 포털이 게임의 최고 점수를 게임 수정 없이 직접 읽는다.
 게임을 다른 도메인에 올렸다면 점수 표시는 `postMessage` 없이는 불가능했을 것이다.
 

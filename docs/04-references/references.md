@@ -21,5 +21,5 @@
 
 ## 관련 저장소
 
-- [eastaim/phaser-starter](https://github.com/eastaim/phaser-starter) — 게임 템플릿. 빌드·배포 설정의 출처
-- [eastaim/MergeDrop](https://github.com/eastaim/MergeDrop) — 포털에 등록된 첫 게임
+- [y3games/phaser-starter](https://github.com/y3games/phaser-starter) — 게임 템플릿. 빌드·배포 설정의 출처
+- [y3games/MergeDrop](https://github.com/y3games/MergeDrop) — 포털에 등록된 첫 게임

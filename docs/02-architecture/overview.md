@@ -49,7 +49,7 @@ postMessage 검증을 브라우저 없이 vitest로 테스트한다. 이 경계�
 ### 게임 URL 계산
 
 ```ts
-const host = import.meta.env.DEV ? 'https://eastaim.github.io' : location.origin;
+const host = import.meta.env.DEV ? 'https://y3games.github.io' : location.origin;
 ```
 
 배포 환경에서 `location.origin`을 쓰는 이유는 **같은 오리진이어야 최고 점수를 읽을 수 있기**

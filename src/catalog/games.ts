@@ -33,7 +33,7 @@ export const GAMES: readonly GameEntry[] = [
  * localhost, so point at the real host; the games then load and play, but they
  * are cross-origin and their scores stay invisible.
  */
-const GAME_HOST = 'https://eastaim.github.io';
+const GAME_HOST = 'https://y3games.github.io';
 
 export function gameUrl(entry: GameEntry): string {
   const host = import.meta.env.DEV ? GAME_HOST : location.origin;

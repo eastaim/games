@@ -4,8 +4,8 @@
 
 웹 게임을 만들 때마다 저장소가 하나씩 늘고, 배포 주소도 하나씩 늘어난다.
 
-- `https://eastaim.github.io/MergeDrop/`
-- `https://eastaim.github.io/phaser-starter/`
+- `https://y3games.github.io/MergeDrop/`
+- `https://y3games.github.io/phaser-starter/`
 
 게임이 쌓일수록 주소를 따로 기억해야 하고, 만든 게임을 한 번에 보여줄 창구가 없다.
 
@@ -13,7 +13,7 @@
 
 **하나의 주소로 들어가면 게임 목록이 뜨고, 고르면 그 자리에서 실행된다.**
 
-- 진입점: `https://eastaim.github.io/games/`
+- 진입점: `https://y3games.github.io/games/`
 - 목록에서 카드를 고르면 페이지를 떠나지 않고 게임이 실행된다
 - 브라우저 뒤로가기로 목록에 돌아온다
 - 각 게임의 개인 최고 점수가 카드에 보인다

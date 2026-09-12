@@ -5,7 +5,7 @@ Guidance for Claude Code when working in this repository.
 ## What this is
 
 The game portal: one page listing every web game, deployed to GitHub Pages at
-`https://eastaim.github.io/games/`. Vite + TypeScript, **no framework and no Phaser** — the portal
+`https://y3games.github.io/games/`. Vite + TypeScript, **no framework and no Phaser** — the portal
 is a list and a shell, and staying tiny is why the list paints instantly while a game loads.
 
 Games are **not** part of this repository. Each keeps its own repo and its own Pages deployment;
@@ -60,6 +60,9 @@ Data flows in one direction: the hash → a route → the catalog → a view.
   type-checks every field. Anything embedded can post to this window.
 - **Do not hardcode `base` in `vite.config.ts`.** It is derived from `GITHUB_REPOSITORY`.
   Hardcoding it 404s every asset on deploy.
+- **A repo named `<owner>.github.io` is served from the root, not `/<repo>/`.** `vite.config.ts`
+  special-cases that name; without it, renaming this repo to become the organization site would
+  build `base: '/y3games.github.io/'` and 404 every asset, showing only a blank page.
 - **A rename must keep the player id.** `savePlayer()` reuses the existing id, which is what keeps
   a renamed player's records theirs. Generating a new id on rename silently orphans every record.
 - Scores are invisible in local dev — the games load cross-origin from the deployed host. That is
